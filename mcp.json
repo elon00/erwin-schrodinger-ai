@@ -1,0 +1,53 @@
+{
+  "mcpServers": {
+    "erwin-schrodinger-ai": {
+      "command": "cargo",
+      "args": [
+        "run",
+        "--release",
+        "--quiet"
+      ],
+      "env": {
+        "RUST_LOG": "info",
+        "TITAN_PROTOCOL": "SCHRODINGER",
+        "FIPS_203_LEVEL": "ML-KEM-768",
+        "FIPS_204_LEVEL": "ML-DSA-65"
+      },
+      "tools": [
+        {
+          "name": "solve_wavefunction_evolution",
+          "description": "Solves the time-dependent Schr\u00f6dinger equation in arbitrary complex multi-dimensional potential wells",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "potential_depth_ev": {
+                "type": "number"
+              },
+              "time_step_fs": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "potential_depth_ev"
+            ]
+          }
+        },
+        {
+          "name": "calculate_quantum_entanglement_density",
+          "description": "Computes density matrices, von Neumann entanglement entropy and cat-state coherence times",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "subsystem_dim": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "subsystem_dim"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
